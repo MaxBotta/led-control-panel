@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Esp8266 control</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-socket-js/1.0.0/web_socket.js"></script>
+    <script src="iro.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container control-panel-background">
+            <div class="control-container-padding-10 w-third h-half">
+                <div class="control-container w-full h-full screen-container">
+                    <div class="control-container w-full h-full screen-dark">
+                        <div id="color-picker-container">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-container w-third h-half">
+                <div class="control-container-padding-10 w-full h-half">
+                    <div class="control-container w-full h-full screen-container">
+                        <div id="feedback" class="control-container w-full h-full screen-dark">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-full h-half">
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED1</div>
+                        </div>
+                    </div>
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED2</div>
+                        </div>
+                    </div>
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED3</div>
+                        </div>
+                    </div>
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED4</div>
+                        </div>
+                    </div>
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED1</div>
+                        </div>
+                    </div>
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED2</div>
+                        </div>
+                    </div>
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED3</div>
+                        </div>
+                    </div>
+                    <div class="control-container-padding-10 w-fourth h-half">
+                        <div class="control-container w-full h-full">
+                            <div class="control-light-container">
+                                <div class="control-light"></div>
+                            </div>
+                            <div class="control-light-text">LED4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-container w-third h-half">
+                <div class="control-container w-third h-half">
+                    <input class="range-slider" type='range' min='0' max='100' value='0' />
+                </div>
+                <div class="control-container w-third h-half">
+                    <input class="range-slider" type='range' min='0' max='100' value='0' />
+                </div>
+                <div class="control-container w-third h-half">
+                    <input class="range-slider" type='range' min='0' max='100' value='0' />
+                </div>
+                <div class="control-container w-third h-half">
+                    <input class="range-slider" type='range' min='0' max='100' value='0' />
+                </div>
+                <div class="control-container w-third h-half">
+                    <input class="range-slider" type='range' min='0' max='100' value='0' />
+                </div>
+                <div class="control-container w-third h-half">
+                    <input class="range-slider" type='range' min='0' max='100' value='0' />
+                </div>
+            </div>
+            <div class="control-container w-third h-half">
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div id="btn-on" class="btn">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    on
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div id="btn-on" class="btn btn-active">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    on
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div id="btn-on" class="btn">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    on
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-container w-third h-half">
+                <!-- <button id="btn-on" class="btn">on/off</button>
+                <div class="control-container w-third h-third">
+                    <button class="btn">Test</button>
+                </div>
+                <div class="control-container w-third h-third">
+                    <button class="btn">Test</button>
+                </div> -->
+            </div>
+            <div class="control-container w-third h-half">
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <button id="btn-on" class="btn">on/off</button>
+    <button class="btn red" value='{"r": 256, "g": 0, "b": 0}'>red</button>
+    <button class="btn green" value='{"r": 0, "g": 256, "b": 0}'>green</button>
+    <button class="btn blue" value='{"r": 0, "g": 0, "b": 256}'>blue</button>
+    </br>
+    </br>
+    <input id="input" type="text" placeholder="type a color" />
+    <button id="send-btn">send</button>
+
+    </br>
+    </br>
+
+    </br>
+    </br> -->
+
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

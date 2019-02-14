@@ -1,0 +1,334 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    margin: 5px 0px !important;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    background: linear-gradient(to bottom, #a7015c, #74007e);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.control-panel-background {
+    background: linear-gradient(to bottom, #464646, #363636, #363636, #363636);
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #333333;
+    border-left: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-bottom: 0px solid #272727;
+    box-sizing: border-box;
+}
+
+.control-container {
+    position: relative;
+    float: left;
+    /* border: 1px solid white; */
+    box-sizing: border-box;
+    /* padding: 20px; */
+    /* background-color: #e817b421; */
+}
+
+.control-container-padding-10 {
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    /* border: 1px solid white; */
+    padding: 10px;
+    /* background-color: #e817b421; */
+}
+
+.control-light-container {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    padding: 4px;
+    background: linear-gradient(to bottom, #212121, #2d2d2d);
+}
+.control-light-text {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(121, 121, 121);
+    font-size: 12px
+}
+.control-light {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: radial-gradient(rgb(121, 121, 121), rgb(94, 94, 94));
+}
+.control-light-active {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background: radial-gradient(rgb(69, 108, 194), rgb(6, 62, 184));
+    box-shadow: 0px 0px 20px 0px rgba(4, 0, 255, 0.686);
+    /* box-shadow: inset 0px 0px 20px 0px rgba(4, 0, 255, 0.686); */
+}
+
+.screen-container {
+    background: linear-gradient(to bottom, #292929, #3f3f3f);
+    box-sizing: border-box;
+    padding: 2px;
+    border-radius: 12px;
+    border-top: 0.5px solid rgb(58, 58, 58);
+    border-bottom: 0.5px solid #363636;
+    border-left: 0.5px solid #363636;
+    border-right: 0.5px solid #363636;
+}
+#feedback {
+    padding: 10px 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.screen-dark {
+    box-sizing: border-box;
+    background: rgb(22, 22, 22);
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 20px;
+    color: rgb(198, 198, 198);
+    text-shadow: 0px 0px 0px rgb(244, 244, 244);;
+    box-shadow: inset 0px 0px 20px 0px rgb(0, 0, 0);
+    /* font-family: 'Orbitron', sans-serif; */
+}
+.screen-brown {
+    box-sizing: border-box;
+    background: rgb(22, 8, 0);
+    border-radius: 10px;
+    padding: 20px;
+    color: rgb(199, 96, 0);
+    text-shadow: 0px 0px 1px rgb(255, 123, 0);;
+    box-shadow: inset 0px 0px 20px 0px rgb(133, 44, 0);
+    font-family: 'Orbitron', sans-serif;
+}
+.screen-green {
+    box-sizing: border-box;
+    background: rgb(4, 46, 0);
+    border-radius: 10px;
+    padding: 20px;
+    color: rgb(206, 206, 206);
+    text-shadow: 0px 0px 0.5px rgb(238, 238, 238);;
+    box-shadow: inset 0px 0px 20px 0px rgb(7, 133, 0);
+    font-family: 'Orbitron', sans-serif;
+}
+.screen-blue {
+    box-sizing: border-box;
+    background: rgb(0, 65, 114);
+    border-radius: 10px;
+    padding: 20px;
+    color: rgb(221, 221, 221);
+    text-shadow: 0px 0px 0px white;
+}
+
+.screen-top {
+    position: absolute;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom, rgba(39, 39, 39, 0.3), rgba(28, 28, 28, 0.6));
+}
+
+.btn-container {
+    box-sizing: border-box;
+    position: absolute;
+    padding: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-top: 0.5px solid rgb(58, 58, 58);
+    border-bottom: 0.5px solid rgb(63, 63, 63);
+    border-left: 0.5px solid rgb(63, 63, 63);
+    border-right: 0.5px solid rgb(63, 63, 63);
+    background: linear-gradient(to bottom, #212121, #2d2d2d, #2d2d2d);
+    border-radius: 12px;
+}
+
+.btn {
+    color: rgb(228, 228, 228);
+    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #3f3f3f, #313131);
+    background-color: none;
+    box-sizing: border-box;
+    border: none;
+    border-top: 1px solid rgb(22, 22, 22);
+    border-left: 1px solid rgb(22, 22, 22);
+    border-right: 1px solid rgb(22, 22, 22);
+    /* border-bottom: 2px solid rgb(41, 41, 41); */
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 2px;
+}
+.btn-active {
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgb(19, 19, 19);
+    background: linear-gradient(to bottom, #3f3f3f, #313131);
+}
+
+.btn-top {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid white; */
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px 2px rgba(60, 60, 60, 0.5);
+    background: linear-gradient(to bottom, #464646, #353535);
+}
+
+.btn-text {
+    color: rgb(233, 233, 233);
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0px 0px 1px rgba(256, 256, 256, 0.6);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn.red {
+    background-color: red;
+}
+
+.btn.green {
+    background-color: green;
+}
+
+.btn.blue {
+    background-color: blue;
+}
+
+#color-picker-container {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Slider styling */
+
+.range-slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* width: calc((100vh / 2.4) ); */
+    transform: translate(-50%, -50%) rotate(270deg);
+    background: rgba(0, 0, 0, 0);
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #292929;
+    border-left: none;
+    height: 40px;
+    width: 60px;
+    border-radius: 10px;
+    background: radial-gradient(#3c3c3c, #2b2b2b);
+    cursor: pointer;
+    margin-top: -12px;
+    /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: -2px 0px 1px 0px rgba(0, 0, 0, 0.5);
+    /* Add cool effects to your sliders! */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 14px;
+    cursor: pointer;
+    /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+    background: #1f1f1f;
+    border-radius: 10px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #1f1f1f;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-half {
+    width: 50%;
+}
+
+.w-third {
+    width: 33.33%;
+}
+.w-fourth {
+    width: 25%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-half {
+    height: 50%;
+}
+
+.h-third {
+    height: 33.33%;
+}
+
+.padding {
+    padding: 20px !important;
+}

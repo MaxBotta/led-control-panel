@@ -11,7 +11,8 @@ p {
     height: 100vh;
     padding: 20px;
     position: fixed;
-    background: linear-gradient(to bottom, #a7015c, #74007e);
+    /* background: linear-gradient(to bottom, #a7015c, #74007e); */
+    background: linear-gradient(to bottom, #282828, #111111);
     left: 0;
     top: 0;
     bottom: 0;
@@ -27,7 +28,7 @@ p {
 }
 
 .control-panel-background {
-    background: linear-gradient(to bottom, #464646, #363636, #363636, #363636);
+    background: linear-gradient(to bottom, #494949, #363636, #363636, #363636);
     box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     width: 100%;
@@ -63,15 +64,15 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
+    width: 40px;
+    height: 20px;
+    border-radius: 8px;
     padding: 4px;
-    background: linear-gradient(to bottom, #212121, #2d2d2d);
+    background: linear-gradient(to bottom, #1a1a1a, #353535);
 }
 .control-light-text {
     position: absolute;
-    top: 90%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(121, 121, 121);
@@ -81,33 +82,40 @@ p {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    border-radius: 20px;
-    background: radial-gradient(rgb(121, 121, 121), rgb(94, 94, 94));
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.7);
+    background: linear-gradient(to bottom, rgb(121, 121, 121), rgb(94, 94, 94));
 }
 .control-light-active {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     border-radius: 20px;
-    background: radial-gradient(rgb(69, 108, 194), rgb(6, 62, 184));
-    box-shadow: 0px 0px 20px 0px rgba(4, 0, 255, 0.686);
+    background: radial-gradient(rgb(184, 60, 201), rgb(132, 1, 158));
+    box-shadow: 0px 0px 20px 0px rgba(255, 0, 204, 0.686);
     /* box-shadow: inset 0px 0px 20px 0px rgba(4, 0, 255, 0.686); */
 }
 
 .screen-container {
-    background: linear-gradient(to bottom, #292929, #3f3f3f);
+    background: linear-gradient(to bottom, #292929, #414141);
     box-sizing: border-box;
     padding: 2px;
     border-radius: 12px;
-    border-top: 0.5px solid rgb(58, 58, 58);
+    border: 1px solid rgb(60, 60, 60);
+    /* border-top: 0.5px solid rgb(58, 58, 58);
     border-bottom: 0.5px solid #363636;
     border-left: 0.5px solid #363636;
-    border-right: 0.5px solid #363636;
+    border-right: 0.5px solid #363636; */
 }
 #feedback {
+    height: 100%;
+    width: 100%;
     padding: 10px 10px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: overlay;
+}
+#feedback::-webkit-scrollbar { 
+    display: none; 
 }
 .screen-dark {
     box-sizing: border-box;
@@ -124,6 +132,7 @@ p {
     box-sizing: border-box;
     background: rgb(22, 8, 0);
     border-radius: 10px;
+    font-size: 12px;
     padding: 20px;
     color: rgb(199, 96, 0);
     text-shadow: 0px 0px 1px rgb(255, 123, 0);;
@@ -134,6 +143,7 @@ p {
     box-sizing: border-box;
     background: rgb(4, 46, 0);
     border-radius: 10px;
+    font-size: 12px;
     padding: 20px;
     color: rgb(206, 206, 206);
     text-shadow: 0px 0px 0.5px rgb(238, 238, 238);;
@@ -171,13 +181,13 @@ p {
     border-bottom: 0.5px solid rgb(63, 63, 63);
     border-left: 0.5px solid rgb(63, 63, 63);
     border-right: 0.5px solid rgb(63, 63, 63);
-    background: linear-gradient(to bottom, #212121, #2d2d2d, #2d2d2d);
+    background: linear-gradient(to bottom, #242424, #464646);
     border-radius: 12px;
 }
 
 .btn {
     color: rgb(228, 228, 228);
-    box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, #3f3f3f, #313131);
@@ -185,16 +195,23 @@ p {
     box-sizing: border-box;
     border: none;
     border-top: 1px solid rgb(22, 22, 22);
-    border-left: 1px solid rgb(22, 22, 22);
-    border-right: 1px solid rgb(22, 22, 22);
+    border-left: 1px solid rgb(14, 14, 14);
+    border-right: 1px solid rgb(14, 14, 14);
     /* border-bottom: 2px solid rgb(41, 41, 41); */
     border-radius: 10px;
     cursor: pointer;
-    padding: 2px;
+    padding: 0px;
 }
-.btn-active {
+/* .btn-active {
+    padding: 0px !important;
     box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgb(19, 19, 19);
+    border: 1px solid rgb(0, 0, 0);
+    background: linear-gradient(to bottom, #3f3f3f, #313131);
+} */
+.btn:active {
+    padding: 0px !important;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgb(0, 0, 0);
     background: linear-gradient(to bottom, #3f3f3f, #313131);
 }
 
@@ -204,18 +221,23 @@ p {
     height: 100%;
     /* border: 1px solid white; */
     border-radius: 8px;
-    box-shadow: 0px 0px 2px 2px rgba(60, 60, 60, 0.5);
+    box-shadow: inset 0px 0px 0px 2px rgba(21, 21, 21, 0.3);
     background: linear-gradient(to bottom, #464646, #353535);
+}
+.btn-top:active {
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.8);
+    /* border: 3px solid #363636; */
 }
 
 .btn-text {
-    color: rgb(233, 233, 233);
+    color: rgb(191, 191, 191);
     font-size: 14px;
+    font-weight: lighter;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-shadow: 0px 0px 1px rgba(256, 256, 256, 0.6);
+    /* text-shadow: 0px 0px 1px rgba(256, 256, 256, 0.6); */
 }
 
 .btn:focus {
@@ -242,9 +264,17 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+#color-picker-preview {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 20px;
+    background: rgba(230,230,230);
+}
 
 /* Slider styling */
-
 .range-slider {
     position: absolute;
     top: 50%;
@@ -252,17 +282,41 @@ p {
     /* width: calc((100vh / 2.4) ); */
     transform: translate(-50%, -50%) rotate(270deg);
     background: rgba(0, 0, 0, 0);
+    z-index: 13;
 }
-
+.range-slider-background { /*Height gets set in JS*/
+    width: 6px;
+    height: 90%;
+    margin-left: 2px;
+    background: linear-gradient(to right, #1d1d1d, #000000, #1d1d1d );
+    /* box-shadow: inset 0px 0px 3px 2px rgb(0, 0, 0); */
+    z-index: 11;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(75, 75, 75, 0.7);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+.range-slider-background-light { /*Height gets set in JS*/
+    width: 100%;
+    height: 10px;
+    background: rgb(221, 0, 255);
+    box-shadow: 0px 0px 3px 1px rgb(234, 0, 255);
+    z-index: 12;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border-radius: 0px 0px 10px 10px;
+}
 input[type=range] {
     -webkit-appearance: none;
     width: 100%;
 }
-
 input[type=range]:focus {
     outline: none;
 }
-
 input[type=range]::-ms-track {
     width: 100%;
     cursor: pointer;
@@ -271,35 +325,35 @@ input[type=range]::-ms-track {
     border-color: transparent;
     color: transparent;
 }
-
 /* Special styling for WebKit/Blink */
-
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: 1px solid #292929;
     border-left: none;
-    height: 40px;
-    width: 60px;
+    height: 50px;
+    width: 30px;
     border-radius: 10px;
-    background: radial-gradient(#3c3c3c, #2b2b2b);
+    background: linear-gradient(to left, #3a3a3a, #262626);
     cursor: pointer;
-    margin-top: -12px;
+    margin-top: -20px;
     /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-    box-shadow: -2px 0px 1px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: -3px 0px 2px -1px rgba(0, 0, 0, 0.8);
     /* Add cool effects to your sliders! */
+    z-index: 12;
 }
-
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 14px;
+    height: 10px;
     cursor: pointer;
     /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
-    background: #1f1f1f;
+    /* background: linear-gradient(to top, #1d1d1d, #020202, #1d1d1d ); */
+    background: rgba(0,0,0,0);
     border-radius: 10px;
+    /* border: 1px solid rgba(75, 75, 75, 0.7); */
+    z-index: 10;
 }
-
 input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #1f1f1f;
+    background: #1f1f1f00;
 }
 
 .w-full {
@@ -313,10 +367,15 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .w-third {
     width: 33.33%;
 }
+.w-two-third {
+    width: 66.66%;
+}
 .w-fourth {
     width: 25%;
 }
-
+.h-fourth {
+    height: 25%;
+}
 .h-full {
     height: 100%;
 }

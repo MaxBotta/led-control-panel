@@ -7,27 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Esp8266 control</title>
     <link href="style.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-socket-js/1.0.0/web_socket.js"></script>
-    <script src="iro.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link href="EffectScreen.css" rel="stylesheet" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/web-socket-js/1.0.0/web_socket.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'> -->
+    <script src="libs/websocket.js"></script>
+    <script src="libs/iro.min.js"></script>
+    <script src="libs/p5/p5.min.js"></script>
+    <script src="libs/p5/addons/p5.dom.min.js"></script>
+    <script src="libs/p5/addons/p5.sound.min.js"></script>
+    <link href='libs/orbitron.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div id="wrapper-background" class="wrapper">
         <div class="container control-panel-background">
-            <div class="control-container-padding-10 w-third h-half">
-                <div class="control-container w-full h-full screen-container">
-                    <div class="control-container w-full h-full screen-dark">
-                        <div id="color-picker-container">
+            <div class="control-container w-third h-half">
+                <div class="control-container w-third h-fourth">
+                    <div class="btn-container">
+                        <div id="btn-on" class="btn">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    on
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="control-container w-third h-half">
-                <div class="control-container-padding-10 w-full h-half">
+                <div class="control-container-padding-10 w-two-third h-half">
                     <div class="control-container w-full h-full screen-container">
                         <div id="feedback" class="control-container w-full h-full screen-dark">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -69,7 +78,7 @@
                             <div class="control-light-container">
                                 <div class="control-light"></div>
                             </div>
-                            <div class="control-light-text">LED1</div>
+                            <div class="control-light-text">LED5</div>
                         </div>
                     </div>
                     <div class="control-container-padding-10 w-fourth h-half">
@@ -77,7 +86,7 @@
                             <div class="control-light-container">
                                 <div class="control-light"></div>
                             </div>
-                            <div class="control-light-text">LED2</div>
+                            <div class="control-light-text">LED6</div>
                         </div>
                     </div>
                     <div class="control-container-padding-10 w-fourth h-half">
@@ -85,7 +94,7 @@
                             <div class="control-light-container">
                                 <div class="control-light"></div>
                             </div>
-                            <div class="control-light-text">LED3</div>
+                            <div class="control-light-text">LED7</div>
                         </div>
                     </div>
                     <div class="control-container-padding-10 w-fourth h-half">
@@ -93,78 +102,182 @@
                             <div class="control-light-container">
                                 <div class="control-light"></div>
                             </div>
-                            <div class="control-light-text">LED4</div>
+                            <div class="control-light-text">LED8</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-container-padding-10 w-third h-half">
+                <div class="control-container w-full h-full screen-container">
+                    <div class="control-container w-full h-full screen-dark">
+                        <div id="color-picker-container">
+                        </div>
+                        <div id="color-picker-preview">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="control-container w-third h-half">
-                <div class="control-container w-third h-half">
-                    <input class="range-slider" type='range' min='0' max='100' value='0' />
-                </div>
-                <div class="control-container w-third h-half">
-                    <input class="range-slider" type='range' min='0' max='100' value='0' />
-                </div>
-                <div class="control-container w-third h-half">
-                    <input class="range-slider" type='range' min='0' max='100' value='0' />
-                </div>
-                <div class="control-container w-third h-half">
-                    <input class="range-slider" type='range' min='0' max='100' value='0' />
-                </div>
-                <div class="control-container w-third h-half">
-                    <input class="range-slider" type='range' min='0' max='100' value='0' />
-                </div>
-                <div class="control-container w-third h-half">
-                    <input class="range-slider" type='range' min='0' max='100' value='0' />
-                </div>
-            </div>
-            <div class="control-container w-third h-half">
-                <div class="control-container w-third h-third">
-                    <div class="btn-container">
-                        <div id="btn-on" class="btn">
-                            <div class="btn-top">
-                                <div class="btn-text">
-                                    on
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="control-container w-third h-third">
-                    <div class="btn-container">
-                        <div id="btn-on" class="btn btn-active">
-                            <div class="btn-top">
-                                <div class="btn-text">
-                                    on
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="control-container w-third h-third">
-                    <div class="btn-container">
-                        <div id="btn-on" class="btn">
-                            <div class="btn-top">
-                                <div class="btn-text">
-                                    on
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="control-container w-third h-half">
-                <!-- <button id="btn-on" class="btn">on/off</button>
-                <div class="control-container w-third h-third">
-                    <button class="btn">Test</button>
-                </div>
-                <div class="control-container w-third h-third">
-                    <button class="btn">Test</button>
-                </div> -->
-            </div>
-            <div class="control-container w-third h-half">
+            <div class="control-container-padding-10 w-third h-half">
+                <div class="control-container w-full h-full screen-container">
+                    <div id="soundwave-screen" class="control-container w-full h-full screen-dark">
 
+                    </div>
+                </div>
+            </div>
+            <div class="control-container w-third h-half">
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn btn-active" data-effect="all">
+                            <div class="btn-top btn-top-active">
+                                <div class="btn-text">
+                                    all
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn" data-effect="strobo">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    strobo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    pingpong
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn" data-effect="colorFadeOut">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    colorfadeout
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div id="btn" class="btn">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    heartbeat
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn" data-effect="laser">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    laser
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn" data-effect="laser">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    effect
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn" data-effect="laser">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    effect
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container w-third h-third">
+                    <div class="btn-container">
+                        <div class="btn" data-effect="laser">
+                            <div class="btn-top">
+                                <div class="btn-text">
+                                    effect
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-container-padding-10 w-third h-half">
+                <div class="control-container w-full h-full screen-container">
+                    <div id="effect-screen" class="control-container w-full h-full screen-dark">
+
+                    </div>
+                </div>
+            </div>
+            <div class="control-container w-third h-half">
+                <div class="control-container-padding-10 w-third h-half">
+                    <input id="range-speed" class="range-slider" step="0.1" type='range' min='0' max='100' value='0' />
+                    speed
+                    <div class="range-slider-background">
+                        <div class="range-slider-background-light">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container-padding-10 w-third h-half">
+                    <input id="range-threshold" class="range-slider" step="1" type='range' min='0' max='100' value='100' />
+                    threshold
+                    <div class="range-slider-background">
+                        <div class="range-slider-background-light">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container-padding-10 w-third h-half">
+                    <input class="range-slider" step="1" type='range' min='0' max='100' value='40' />
+                    <div class="range-slider-background">
+                        <div class="range-slider-background-light">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container-padding-10 w-third h-half">
+                    <input class="range-slider" step="1" type='range' min='0' max='100' value='40' />
+                    <div class="range-slider-background">
+                        <div class="range-slider-background-light">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container-padding-10 w-third h-half">
+                    <input class="range-slider" step="1" type='range' min='0' max='100' value='40' />
+                    <div class="range-slider-background">
+                        <div class="range-slider-background-light">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-container-padding-10 w-third h-half">
+                    <input class="range-slider" step="1" type='range' min='0' max='100' value='40' />
+                    <div class="range-slider-background">
+                        <div class="range-slider-background-light">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -187,6 +300,9 @@
 
 
     <script src="dashboard.js"></script>
+    <script src="EffectScreen.js"></script>
+    <script src="p5/amplitudeOverTime.js"></script>
+    <script src="p5/helpers.js"></script>
 </body>
 
 </html>

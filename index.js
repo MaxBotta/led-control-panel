@@ -66,33 +66,34 @@ wss.on("connection", function connection(ws, req) {
                 if (message.isDevice == true) {
                     ws.isDevice = true;
                     DEVICES = getDevices();
-                    // console.log("Devices:");
-                    // console.log(DEVICES);
 
                     //Send list of devices (only ips) to our webapp
-                    let devices = [];
-                    DEVICES.forEach(function each(ws) {
-                        devices.push(ws.ip);
-                    })
+                    let devices = getAllDeviceIps();
                     console.log(devices);
                     sendToUsers({ type: "devices", value: devices });
                 } else if (message.isDevice == false) {
                     ws.isDevice = false;
                     USERS.push(ws);
+                    let devices = getAllDeviceIps();
+                    sendToUsers({ type: "devices", value: devices });
                     // console.log("Users:");
                     // console.log(USERS);
                 }
-
                 break;
             case "data":
                 //send data to all devices
-                sendToDevices(event.data);
-                console.log(JSON.parse(event.data));
+                sendToDevices(message);
+                console.log(message);
                 break;
             case "message":
                 //Broadcast message to all Users/Webapps
-                sendToUsers(event.data);
-                console.log(JSON.parse(event.data));
+                sendToUsers(message);
+                console.log(message);
+                break;
+            case "effect":
+                //Broadcast message to all devices
+                sendToDevices(message);
+                console.log(message);
                 break;
         }
     };
@@ -105,6 +106,14 @@ wss.on("connection", function connection(ws, req) {
 
 
 });
+
+function getAllDeviceIps() {
+    let devices = [];
+    DEVICES.forEach(function each(ws) {
+        devices.push(ws.ip);
+    })
+    return devices;
+}
 
 function checkIfAlive(ws) {
     var lastPongReceived = Date.now();
@@ -126,12 +135,18 @@ function checkIfAlive(ws) {
             //cannot be delivered to client   
 
             //Notify Users/Webapp
+            const oldDevicesLength = DEVICES.length;
             DEVICES = getDevices();
+            const newDevicesLength = DEVICES.length;
             let devices = [];
             DEVICES.forEach(function each(ws) {
                 devices.push(ws.ip);
             })
-            sendToUsers({ type: "message", value: "Device disconnected!" });
+            if(oldDevicesLength < newDevicesLength) {
+                sendToUsers({ type: "message", value: "Device disconnected!" });
+            } else if (oldDevicesLength > newDevicesLength) {
+                sendToUsers({ type: "message", value: "New device connected!" });
+            }
             sendToUsers({ type: "devices", value: devices });
         }
         if (ws.readyState === 1) {
